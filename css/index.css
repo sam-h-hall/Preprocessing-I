@@ -1,1 +1,310 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+/*variables*/
+/*mixin*/
+.font-size {
+  font-size: 1.2rem;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  padding-right: 200px;
+  padding-left: 200px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 500px) {
+  .container {
+    padding: 0px;
+  }
+}
+.container .shift {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: black;
+  position: fixed;
+  padding: 20px;
+  width: 79%;
+  justify-content: space-around;
+}
+@media (max-width: 500px) {
+  .container .shift {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.container .shift a,
+.container .shift a:after,
+.container .shift a:before {
+  transition: all 0.7s;
+}
+.container .shift a {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+.container .shift a:hover {
+  color: black;
+}
+.container .shift a:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: ".";
+  color: transparent;
+  background: white;
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+.container .shift a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+.container .header-box {
+  /*padding: 18rem 3rem 18rem 3rem;*/
+  width: 100%;
+  height: 50rem;
+  background-color: rgba(116, 115, 112, 0.3);
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 500px) {
+  .container .header-box {
+    height: 20%;
+  }
+}
+.container .header-box img {
+  width: 20%;
+}
+.container .header-box h1 {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  font-size: 3rem;
+  /*background-color: transparent; /*had to do this because old background wouldn't go away*/
+  text-align: left;
+  /*padding: 18rem 3rem 18rem 3rem;*/
+  margin-top: 1rem;
+  border-bottom: 2px solid black;
+}
+.container h2 {
+  font-family: 'Tangerine', serif;
+  font-size: 3rem;
+  padding-bottom: 0.6rem;
+}
+.container .about-me {
+  display: flex;
+  flex-direction: column;
+}
+.container .about-me .intro {
+  width: 52%;
+  margin-right: 3%;
+  margin-top: 3%;
+}
+@media (max-width: 500px) {
+  .container .about-me .intro {
+    width: 100%;
+    margin: 0px;
+    margin-top: 20px;
+  }
+}
+.container .about-me .skills {
+  width: 45%;
+  margin-top: 3%;
+}
+@media (max-width: 500px) {
+  .container .about-me .skills {
+    width: 100%;
+  }
+}
+.container .about-me .skills td {
+  border: 2px solid rgba(128, 128, 128, 0.6);
+  padding: 0.5rem;
+  width: 1%;
+  font-size: 1.2rem;
+}
+.container .about-me .work-history {
+  margin-top: 2rem;
+}
+.container .about-me .work-history table {
+  width: 100%;
+}
+.container .about-me .work-history table th {
+  font-weight: bold;
+}
+.container .about-me .work-history table th,
+.container .about-me .work-history table td {
+  padding: 5px;
+  border-top: lightgray;
+  /*this showed up earlier and now it won't?*/
+  border-bottom: lightgray;
+}
+.container .about-me .work-history table td {
+  justify-self: center;
+  width: 25%;
+  text-align: center;
+}
+.container .about-me .work-history table .grey-row {
+  background-color: rgba(116, 115, 112, 0.3);
+}
+.container .about-me .row {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 500px) {
+  .container .about-me .row {
+    flex-direction: column;
+  }
+}
+.container .contact {
+  margin-top: 2rem;
+  margin-bottom: 200px;
+}

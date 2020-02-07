@@ -54,6 +54,207 @@ table {
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+/*variables*/
+@grey-color:  rgba(116, 115, 112, .3);
+@color: white;
+
+/*mixin*/
+.font-size {
+	font-size: 1.2rem;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	padding-right: 200px;
+	padding-left: 200px;
+	.flex-col();
+
+	@media(max-width: 500px) {
+		padding: 0px;
+	}
+
+	.shift {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		background-color: black;
+		position: fixed;
+		padding: 20px;
+		width: 79%;
+		justify-content: space-around;
+
+		@media(max-width:500px) {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		a, a:after, a:before {
+			transition: all .7s;
+		}
+
+		a {
+			position: relative;
+			z-index: 1;
+			text-decoration: none;
+			color: @color;
+			font-size: 1.3rem;
+			padding: .5rem;
+		}
+
+		a:hover {
+			color: black;
+		}
+
+		a:after {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			width: 100%;
+			height: 1px;
+			content: ".";
+			color: transparent;
+			background: white;
+			visibility: none;
+			opacity: 0;
+			z-index: -1;
+		}
+		
+		a:hover:after {
+			opacity: 1;
+			visibility: visible;
+			height: 100%;
+		}
+
+	}
+
+	.header-box {
+		/*padding: 18rem 3rem 18rem 3rem;*/
+		width: 100%;
+		height: 50rem;
+		background-color: @grey-color;
+		padding: 5rem;
+		display: flex;
+		flex-direction: column;
+
+		@media (max-width: 500px) {
+			height: 20%;
+		}
+
+		img {
+			width: 20%;
+		}
+
+		h1 {
+			padding-top: 5rem;
+			padding-bottom: 2rem;
+			font-size: 3rem;
+			/*background-color: transparent; /*had to do this because old background wouldn't go away*/
+			text-align: left;
+			/*padding: 18rem 3rem 18rem 3rem;*/
+			margin-top: 1rem;
+			border-bottom: 2px solid black;
+		}
+
+	}
+
+	
+
+	h2 {
+		font-family: 'Tangerine', serif;
+		font-size: 3rem;
+		padding-bottom: .6rem;
+	}
+
+	.about-me {
+		display: flex;
+		flex-direction: column;
+
+		.intro {
+			width: 52%;
+			margin-right: 3%;
+			margin-top: 3%;
+
+			@media(max-width: 500px) {
+				width: 100%;
+				margin: 0px;
+				margin-top: 20px;
+			}
+		}
+
+		
+
+		.skills {
+			width: 45%;
+			margin-top: 3%;
+
+			@media(max-width: 500px) {
+				width: 100%;
+			}
+
+			td {
+				border: 2px solid rgba(128, 128, 128, .6);
+				padding: .5rem;
+				width: 1%;
+
+				.font-size();
+			}
+		}
+
+		.work-history {
+			margin-top: 2rem;
+
+			table {
+				width: 100%;
+
+				th {
+					font-weight: bold;
+				}
+
+				th, td {
+					padding: 5px;
+					border-top: lightgray; /*this showed up earlier and now it won't?*/
+					border-bottom: lightgray;
+				}
+
+				td {
+					justify-self: center;
+					width: 25%;
+					text-align: center;
+				}
+				
+				.grey-row {
+					background-color: @grey-color;
+				}
+			}
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+
+			@media(max-width: 500px) {
+				flex-direction: column;
+			}
+		}
+
+	}
+
+	.contact {
+		margin-top: 2rem;
+		margin-bottom: 200px;
+	}
+
+
+
+}
